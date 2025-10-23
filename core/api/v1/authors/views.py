@@ -39,7 +39,7 @@ async def get_author(
 
 
 @router.get(
-    "/{author_id}/with_books/",
+    "/{author_id}/with_info/",
     response_model=AuthorWithBooksSchema,
 )
 async def get_author_books(

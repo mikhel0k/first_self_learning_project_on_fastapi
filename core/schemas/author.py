@@ -3,8 +3,6 @@ from datetime import datetime
 from pydantic import BaseModel
 
 from .base_schemas import BaseSchemaForDB
-from .book import BookSchema
-
 
 
 class AuthorBase(BaseModel):
@@ -36,4 +34,4 @@ class AuthorSchema(AuthorBase, BaseSchemaForDB):
 
 
 class AuthorWithBooksSchema(AuthorBase, BaseSchemaForDB):
-    books: list[BookSchema] = []
+    books: list["BookSchema"] = []

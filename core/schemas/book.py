@@ -2,7 +2,6 @@ from typing import List
 
 from pydantic import BaseModel
 
-from . import AuthorSchema, ReviewSchema
 from .base_schemas import BaseSchemaForDB
 
 
@@ -29,5 +28,5 @@ class BookSchema(BookBase, BaseSchemaForDB):
 
 
 class BookWithDetailsSchema(BookBase, BaseSchemaForDB):
-    authors: List[AuthorSchema] = []
-    reviews: List[ReviewSchema] = []
+    authors: List["AuthorSchema"] = []
+    reviews: List["ReviewSchema"] = []

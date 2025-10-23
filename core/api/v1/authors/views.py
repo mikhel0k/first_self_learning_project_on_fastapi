@@ -14,10 +14,10 @@ router = APIRouter(prefix="/authors", tags=["authors"])
     "/",
     response_model=List[AuthorSchema],
 )
-async def get_authors(
+async def get_all_authors(
         session: AsyncSession = Depends(db_helper.get_session),
 ) -> List[AuthorSchema]:
-    authors = await authorCRUD.get_authors(
+    authors = await authorCRUD.get_all_authors(
         session=session,
     )
     return authors
@@ -94,7 +94,7 @@ async def delete_author(
         author_id: int,
         session: AsyncSession = Depends(db_helper.get_session),
 ) -> None:
-    author = await authorCRUD.delete_author(
+    await authorCRUD.delete_author(
         deleted_author_id=author_id,
         session=session,
     )

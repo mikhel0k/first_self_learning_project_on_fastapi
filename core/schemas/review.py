@@ -24,4 +24,4 @@ class ReviewUpdate(BaseModel):
 
 
 class ReviewSchema(ReviewBase, BaseSchemaForDB):
-    pass
+    book_id: int

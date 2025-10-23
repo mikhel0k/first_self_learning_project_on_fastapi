@@ -1,6 +1,6 @@
-from .v1 import authors_router
+from .v1 import api_v1_router
 
 
 __all__ = [
-    "authors_router"
+    "api_v1_router",
 ]

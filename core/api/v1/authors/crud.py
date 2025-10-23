@@ -14,7 +14,7 @@ class AuthorCRUD:
     def __init__(self):
         self.get_item_by_id = get_item_by_id(Author)
 
-    async def get_authors(
+    async def get_all_authors(
             self,
             session: AsyncSession
     ) -> List[AuthorSchema]:

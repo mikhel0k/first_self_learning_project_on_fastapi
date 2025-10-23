@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 from core import Author
-from core.schemas import AuthorSchema, AuthorCreate, AuthorUpdate
+from core.schemas import AuthorSchema, AuthorCreate, AuthorUpdate, AuthorWithBooksSchema
 from ..dependencies import get_item_by_id
 
 
@@ -48,7 +48,7 @@ class AuthorCRUD:
                 detail=f"Author with {author_id} id does not found"
             )
 
-        return AuthorSchema.model_validate(author)
+        return AuthorWithBooksSchema.model_validate(author)
 
     async def create_author(
             self,
@@ -88,3 +88,6 @@ class AuthorCRUD:
 
         await session.delete(author)
         await session.commit()
+
+
+authorCRUD = AuthorCRUD()

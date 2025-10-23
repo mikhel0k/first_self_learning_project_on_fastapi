@@ -49,3 +49,42 @@ class AuthorCRUD:
             )
 
         return AuthorSchema.model_validate(author)
+
+    async def create_author(
+            self,
+            session: AsyncSession,
+            created_author: AuthorCreate,
+    ) -> AuthorSchema:
+        author = Author(**created_author.model_dump())
+
+        session.add(author)
+        await session.commit()
+        await session.refresh(author)
+
+        return AuthorSchema.model_validate(author)
+
+    async def update_author(
+            self,
+            session: AsyncSession,
+            author_id: int,
+            updated_author: AuthorUpdate
+    ) -> AuthorSchema:
+        author = await self.get_item_by_id(author_id, session)
+
+        updated_author = updated_author.model_dump(exclude_unset=True)
+        for key, value in updated_author.items():
+            setattr(author, key, value)
+
+        await session.commit()
+        await session.refresh(author)
+        return AuthorSchema.model_validate(author)
+
+    async def delete_author(
+            self,
+            session: AsyncSession,
+            deleted_author_id: int
+    ) -> None:
+        author = await self.get_item_by_id(deleted_author_id, session)
+
+        await session.delete(author)
+        await session.commit()

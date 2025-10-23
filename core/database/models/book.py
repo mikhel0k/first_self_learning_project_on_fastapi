@@ -11,7 +11,7 @@ class Book(BaseModel):
     price: Mapped[float] = mapped_column(Float)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
 
-    reviews: Mapped[list["Review"]] = relationship(back_populates="book.py")  # type: ignore
+    reviews: Mapped[list["Review"]] = relationship(back_populates="book")  # type: ignore
     authors: Mapped[list["Author"]] = relationship(  # type: ignore
         secondary=book_author_association_table,
         back_populates="books"

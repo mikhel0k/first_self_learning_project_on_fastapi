@@ -23,5 +23,5 @@ class ReviewUpdate(BaseModel):
     reviewer: str | None = None
 
 
-class Review(ReviewBase, BaseSchemaForDB):
+class ReviewSchema(ReviewBase, BaseSchemaForDB):
     pass

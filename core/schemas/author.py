@@ -29,5 +29,5 @@ class AuthorUpdate(BaseModel):
     isalive: bool | None = None
 
 
-class Author(AuthorBase, BaseSchemaForDB):
+class AuthorSchema(AuthorBase, BaseSchemaForDB):
     pass

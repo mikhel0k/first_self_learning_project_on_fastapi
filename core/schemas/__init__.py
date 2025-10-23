@@ -1,16 +1,16 @@
-from .author import Author, AuthorCreate, AuthorUpdate
-from .book import Book, BookCreate, BookUpdate
-from .review import Review, ReviewCreate, ReviewUpdate
+from .author import AuthorSchema, AuthorCreate, AuthorUpdate
+from .book import BookSchema, BookCreate, BookUpdate
+from .review import ReviewSchema, ReviewCreate, ReviewUpdate
 
 
 __all__ = [
-    'Author',
+    'AuthorSchema',
     'AuthorCreate',
     'AuthorUpdate',
-    'Book',
+    'BookSchema',
     'BookCreate',
     'BookUpdate',
-    'Review',
+    'ReviewSchema',
     'ReviewCreate',
     'ReviewUpdate',
 ]

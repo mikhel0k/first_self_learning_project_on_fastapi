@@ -11,7 +11,8 @@ def get_item_by_id(model: type[DeclarativeBase]):
             item_id: int,
             db: AsyncSession = Depends(db_helper.get_session),
     ) -> DeclarativeBase:
-        result = await db.execute(select(model).where(model.id == item_id))
+        stmt = select(model).where(model.id == item_id)
+        result = await db.execute(stmt)
         item = result.scalar_one_or_none()
 
         if not item:

@@ -21,5 +21,5 @@ class BookUpdate(BaseModel):
     description: str | None = None
 
 
-class Book(BookBase, BaseSchemaForDB):
+class BookSchema(BookBase, BaseSchemaForDB):
     pass

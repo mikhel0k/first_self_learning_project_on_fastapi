@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core import Review
+from core.database import Review
 from ..dependencies import get_item_by_id
 from core.schemas import ReviewSchema, ReviewCreate, ReviewUpdate
 

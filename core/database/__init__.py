@@ -3,9 +3,9 @@ from .db_helper import db_helper
 
 
 __all__ = [
-    "BaseModel",
     "Review",
     "Book",
     "Author",
     "db_helper",
+    "BaseModel",
 ]

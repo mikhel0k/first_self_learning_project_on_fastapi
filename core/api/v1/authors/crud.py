@@ -5,7 +5,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from core import Author
+from core.database import Author
 from core.schemas import AuthorSchema, AuthorCreate, AuthorUpdate, AuthorWithBooksSchema
 from ..dependencies import get_item_by_id
 

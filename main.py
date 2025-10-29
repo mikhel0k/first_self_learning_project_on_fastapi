@@ -7,8 +7,6 @@ from core import api_v1_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with db_helper.engine.begin() as conn:
-        await conn.run_sync(BaseModel.metadata.create_all)
 
     yield
 
